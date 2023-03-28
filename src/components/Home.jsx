@@ -9,7 +9,9 @@ const StyleMain = styled.main `
     text-align: justify;
 
     h1 {
+        text-align: center;
         color: #df8634;
+        margin-bottom: 20px;
     }
 
     p {

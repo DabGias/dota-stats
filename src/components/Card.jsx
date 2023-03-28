@@ -1,13 +1,9 @@
 import styled from "styled-components"
-import strIcon from "../img/str.png"
-import agiIcon from "../img/agi.png"
-import intIcon from "../img/int.png"
-import meleeIcon from "../img/melee.png"
-import rangedIcon from "../img/ranged.png"
-
+// import strIcon from "../img/str.png"
+// import agiIcon from "../img/agi.png"
+// import intIcon from "../img/int.png"
 
 const StyleCard = styled.div `
-    height: 320px;
     width: 320px;
     padding: 20px;
     margin: 20px;
@@ -17,14 +13,12 @@ const StyleCard = styled.div `
     transition: 250ms;
 
     :hover {
-        background-color: #303030;
+        background-image: linear-gradient(#AA0000, #121212, #121212);
         transform: scale(1.05);
         cursor: pointer;
-        border: 2px solid #df8634;
         transition: 250ms;
 
         .attrs {
-            border: 2px solid #df8634;
             transition: 250ms;
         }
     }
@@ -48,11 +42,12 @@ const StyleCard = styled.div `
     }
 
     .attrs {
-        background-color: #303030;
+        display: flex;
+        flex-direction: column;
         border: 2px solid #FEFEFE;
         border-radius: 20px;
         padding: 20px;
-        width: 80%;
+        width: 90%;
         margin: auto;
         margin-top: 10px;
         display: flex;
@@ -60,28 +55,29 @@ const StyleCard = styled.div `
         justify-content: space-around;
         transition: 250ms;
     }
-
-    .attr {
-        width: 25%;
-    }
-
-    .attk-type {
-        width: 20%;
-    }
 `
 
 function Card(props) {
     return(
         <>
-            <StyleCard key={props.hero.id} className="card">
+            <StyleCard className="card">
                 <h2>{props.hero.localized_name}</h2>
                 <img src={"https://api.opendota.com" + props.hero.img} alt="" className={"photo " + props.hero.primary_attr}/>
                 <div className="attrs">
-                    {props.hero.primary_attr === "str" ? <img src={strIcon} alt="" className="attr"/> 
-                    : props.hero.primary_attr === "agi" ? <img src={agiIcon} alt="" className="attr"/> 
-                    : <img src={intIcon} alt="" className="attr"/>}
-                    {props.hero.attack_type === "Melee" ? <img src={meleeIcon} alt="" className="attk-type"/> 
-                    : <img src={rangedIcon} alt="" className="attk-type"/>}
+                    <p>Attk. Type: {props.hero.attack_type}</p>
+                    <p>Base Health: {props.hero.base_health}</p>
+                    <p>Base Health Regen.: {props.hero.base_health_regen}</p>
+                    <p>Base Mana: {props.hero.base_mana}</p>
+                    <p>Base Mana Regen.: {props.hero.base_mana_regen}</p>
+                    <p>Base Armor: {props.hero.base_armor}</p>
+                    <p>Base MR: {props.hero.base_mr}</p>
+                    <p>Strengh: {props.hero.base_str} +{props.hero.str_gain}</p>
+                    <p>Agility: {props.hero.base_agi} +{props.hero.agi_gain}</p>
+                    <p>Intelligence: {props.hero.base_int} +{props.hero.int_gain}</p>
+                    <p>Attk. Range: {props.hero.attack_range}</p>
+                    {props.hero.attack_type === "Melee" ? "" 
+                    : <p>Projectile Speed: {props.hero.projectile_speed}</p>}
+                    <p>Move Speed: {props.hero.move_speed}</p>
                 </div>
             </StyleCard>
         </>

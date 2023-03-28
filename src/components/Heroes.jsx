@@ -20,7 +20,8 @@ function Heroes() {
     const [heroes, setHeroes] = useState([])
 
     useEffect(() => {
-        fetch("https://api.opendota.com/api/heroStats").then((resp) => {
+        fetch("https://api.opendota.com/api/heroStats")
+        .then((resp) => {
             return resp.json()
         }).then((resp) => {
             setHeroes(resp)

@@ -51,7 +51,6 @@ function Header() {
                     <ul>
                         <li><Link to={"/"}>Home</Link></li>
                         <li><Link to={"/heroes"}>Heroes</Link></li>
-                        <li><Link to={"/info"}>Info</Link></li>
                         <li><Link to={"/sobre"}>Sobre</Link></li>
                     </ul>
                 </nav>
